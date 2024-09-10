@@ -1,10 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nectar/app/route.dart';
 import 'package:nectar/mock/mock_service.dart';
 import 'package:nectar/ui/cart/cart_viewmodel.dart';
+import 'package:nectar/ui/favourite/favourite_viewModel.dart';
 import 'package:nectar/ui/home/home_viewmodel.dart';
 import 'package:nectar/ui/wrapper/wrapper_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +26,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => MockService()),
           ChangeNotifierProvider(create: (_) => CartViewModel()),
           ChangeNotifierProvider(create: (_) => WrapperViewmodel()),
+          ChangeNotifierProvider(create: (_) => FavouriteViewModel()),
         ],
         child: const MaterialApp(
           initialRoute: RouteManager.splash,

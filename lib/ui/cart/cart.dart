@@ -7,6 +7,7 @@ import 'package:nectar/core/textstyle_manager.dart';
 import 'package:nectar/ui/cart/cart_viewmodel.dart';
 import 'package:nectar/widgets/cart_widget.dart';
 import 'package:nectar/widgets/checkout_view.dart';
+import 'package:nectar/widgets/empty_widget.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatefulWidget {
@@ -35,26 +36,9 @@ class _CartScreenState extends State<CartScreen> {
       ),
       body: Consumer<CartViewModel>(builder: (context, cart, __) {
         return cart.cartlist.isEmpty
-            ? Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.remove_shopping_cart_outlined,
-                      color: ColorManager.green,
-                      size: 50.r,
-                    ),
-                    Text(
-                      "Empty Cart",
-                      textAlign: TextAlign.center,
-                      style: semiBoldTextStyle(
-                          fontSize: 24.sp,
-                          color: ColorManager.black1,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                ),
-              )
+            ? const EmptyWidget(
+              title: "Empty Cart",
+            )
             : Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: ListView.separated(
