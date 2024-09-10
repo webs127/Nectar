@@ -20,6 +20,16 @@ class CartViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void addListToCart(List<ItemModel> itemList) {
+    for (var element in itemList) {
+      if(!_cartlist.contains(element)) {
+        _cartlist.add(element);
+      }
+    }
+    value = totalPrice;
+    notifyListeners();
+  }
+
   void removeFromCart(int index) {
     _cartlist.removeAt(index);
     value = totalPrice;
